@@ -1,0 +1,14 @@
+{
+  "name": "hijot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node start.js",
+    "start:backend": "cd backend && npx nest start --watch",
+    "start:vite": "cd frontend && npx vite",
+    "start:electron": "cd frontend && npx cross-env NODE_ENV=development npx electron ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

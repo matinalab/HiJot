@@ -1,0 +1,103 @@
+appId: com.hijot.app
+productName: HiJot
+
+# 只保留中英文语言包
+electronLanguages:
+  - en-US
+  - zh-CN
+
+directories:
+  output: dist-electron
+  buildResources: build
+
+# 启用 asar 压缩
+asar: true
+# 使用最大压缩级别
+compression: maximum
+
+files:
+  - "dist/**"
+  - "main.js"
+  - "src/preload.js"
+  - "src/assets/**"
+  - "package.json"
+
+extraResources:
+  # Backend 编译后的代码
+  - from: "../backend/dist"
+    to: "backend/dist"
+    filter:
+      - "**/*"
+      - "!**/*.map"
+      - "!**/*.d.ts"
+      - "!**/tsconfig.tsbuildinfo"
+  # 生产环境依赖（由 npm run build:prod-deps 生成）
+  - from: "../backend/prod_build/node_modules"
+    to: "backend/node_modules"
+    filter:
+      - "**/*"
+      - "!**/*.md"
+      - "!**/*.ts"
+      - "!**/*.map"
+      - "!**/README*"
+      - "!**/CHANGELOG*"
+      - "!**/LICENSE*"
+      - "!**/test/**"
+      - "!**/tests/**"
+      - "!**/__tests__/**"
+      - "!**/docs/**"
+      - "!**/.github/**"
+  - from: "../backend/package.json"
+    to: "backend/package.json"
+
+extraMetadata:
+  main: "main.js"
+
+win:
+  target:
+    - nsis
+  icon: "build/icon.ico"
+
+nsis:
+  # 关闭一键安装，启用向导式安装界面
+  oneClick: false
+  # 允许用户选择安装路径
+  allowToChangeInstallationDirectory: true
+  # 引入自定义 NSIS 脚本
+  include: "build/installer.nsh"
+  # 允许提升管理员权限（安装到 Program Files 时需要）
+  allowElevation: true
+  # 默认为当前用户安装，设为 true 则默认为所有用户安装
+  perMachine: false
+  # 创建桌面快捷方式
+  createDesktopShortcut: true
+  # 创建开始菜单快捷方式
+  createStartMenuShortcut: true
+  # 快捷方式名称
+  shortcutName: "HiJot"
+  # 安装程序图标
+  installerIcon: "build/icon.ico"
+  # 卸载程序图标
+  uninstallerIcon: "build/icon.ico"
+  # 安装向导头部图标
+  installerHeaderIcon: "build/icon.ico"
+  # 卸载程序在控制面板中显示的名称
+  uninstallDisplayName: "HiJot"
+  # 卸载时是否删除应用数据（建议保留用户数据）
+  deleteAppDataOnUninstall: false
+  # 安装包显示的语言
+  language: 2052
+
+mac:
+  target:
+    - dmg
+  icon: "build/icon.icns"
+
+linux:
+  target:
+    - AppImage
+  icon: "build/icons"
+
+publish: null
+
+

@@ -1,0 +1,50 @@
+{
+  "name": "hijot",
+  "version": "1.0.0",
+  "description": "HiJot Electron Frontend",
+  "productName": "HiJot",
+  "main": "main.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:renderer": "vue-tsc --noEmit && vite build",
+    "build": "npm run build:renderer",
+    "build:backend": "cd ../backend && npm run build",
+    "build:prod-deps": "node scripts/build-prod.js",
+    "electron": "cross-env NODE_ENV=development electron .",
+    "start": "concurrently --raw --kill-others-on-fail --kill-others \"npm:dev\" \"npm:electron\"",
+    "dist": "npm run build:renderer && electron-builder -c ./electron-builder.yml",
+    "dist:prod": "npm run build:renderer && npm run build:backend && npm run build:prod-deps && electron-builder -c ./electron-builder.yml",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "vue": "^3.5.13",
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.5",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.2",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20",
+    "sass": "^1.83.0",
+    "typescript": "^5.7.2",
+    "vue-tsc": "^2.2.0",
+    "@types/node": "^22.10.2",
+    "vitest": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^25.0.1"
+  }
+}

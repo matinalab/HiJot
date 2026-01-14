@@ -1,0 +1,489 @@
+// ============================================
+// 颜色工具类
+// ============================================
+.text-fff {
+  color: #ffffff;
+}
+
+.text-000 {
+  color: #000000;
+}
+
+.text-333 {
+  color: #333333;
+}
+
+.text-666 {
+  color: #666666;
+}
+
+.text-999 {
+  color: #999999;
+}
+
+.text-green {
+  color: var(--mainColor);
+}
+
+.text-blue {
+  color: #409EFF;
+}
+
+.bg-fff {
+  background-color: #ffffff;
+}
+
+.bg-green {
+  background-color: var(--mainColor);
+}
+
+// ============================================
+// 字体权重
+// ============================================
+.fw-normal {
+  font-weight: normal;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+// ============================================
+// 间距系统 - 精简版（0-100px，步进5）
+// ============================================
+@for $i from 0 through 20 {
+  $val: $i * 5;
+
+  // Padding
+  .p#{$val} {
+    padding: #{$val}px;
+  }
+
+  .pl#{$val} {
+    padding-left: #{$val}px;
+  }
+
+  .pr#{$val} {
+    padding-right: #{$val}px;
+  }
+
+  .pt#{$val} {
+    padding-top: #{$val}px;
+  }
+
+  .pb#{$val} {
+    padding-bottom: #{$val}px;
+  }
+
+  .px#{$val} {
+    padding-left: #{$val}px;
+    padding-right: #{$val}px;
+  }
+
+  .py#{$val} {
+    padding-top: #{$val}px;
+    padding-bottom: #{$val}px;
+  }
+
+  // Margin
+  .m#{$val} {
+    margin: #{$val}px;
+  }
+
+  .ml#{$val} {
+    margin-left: #{$val}px;
+  }
+
+  .mr#{$val} {
+    margin-right: #{$val}px;
+  }
+
+  .mt#{$val} {
+    margin-top: #{$val}px;
+  }
+
+  .mb#{$val} {
+    margin-bottom: #{$val}px;
+  }
+
+  .mx#{$val} {
+    margin-left: #{$val}px;
+    margin-right: #{$val}px;
+  }
+
+  .my#{$val} {
+    margin-top: #{$val}px;
+    margin-bottom: #{$val}px;
+  }
+
+  // Gap
+  .gap#{$val} {
+    gap: #{$val}px;
+  }
+}
+
+// 常用单值间距（1-20px）
+@for $i from 1 through 20 {
+  .p#{$i} {
+    padding: #{$i}px;
+  }
+
+  .m#{$i} {
+    margin: #{$i}px;
+  }
+
+  .mt#{$i} {
+    margin-top: #{$i}px;
+  }
+
+  .mb#{$i} {
+    margin-bottom: #{$i}px;
+  }
+
+  .ml#{$i} {
+    margin-left: #{$i}px;
+  }
+
+  .mr#{$i} {
+    margin-right: #{$i}px;
+  }
+
+  .pt#{$i} {
+    padding-top: #{$i}px;
+  }
+
+  .pb#{$i} {
+    padding-bottom: #{$i}px;
+  }
+
+  .pl#{$i} {
+    padding-left: #{$i}px;
+  }
+
+  .pr#{$i} {
+    padding-right: #{$i}px;
+  }
+
+  .gap#{$i} {
+    gap: #{$i}px;
+  }
+}
+
+// ============================================
+// 尺寸系统 - 精简版（0-500px，步进10）
+// ============================================
+@for $i from 0 through 50 {
+  $val: $i * 10;
+
+  .w#{$val} {
+    width: #{$val}px;
+  }
+
+  .h#{$val} {
+    height: #{$val}px;
+  }
+
+  .minh#{$val} {
+    min-height: #{$val}px;
+  }
+
+  .lh#{$val} {
+    line-height: #{$val}px;
+  }
+}
+
+// 常用单值尺寸（1-50px）
+@for $i from 1 through 50 {
+  .w#{$i} {
+    width: #{$i}px;
+  }
+
+  .h#{$i} {
+    height: #{$i}px;
+  }
+}
+
+// 百分比宽度
+.w-full {
+  width: 100%;
+}
+
+.w-half {
+  width: 50%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+// ============================================
+// 圆角系统 - 精简版（0-30px）
+// ============================================
+@for $i from 0 through 30 {
+  .br#{$i} {
+    border-radius: #{$i}px;
+  }
+}
+
+.br-full {
+  border-radius: 50%;
+}
+
+// ============================================
+// 字体大小系统（10-32px）
+// ============================================
+@for $i from 10 through 32 {
+  .fs#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+// ============================================
+// 定位系统 - 精简版（0-100px）
+// ============================================
+@for $i from 0 through 100 {
+  .top#{$i} {
+    top: #{$i}px;
+  }
+
+  .bottom#{$i} {
+    bottom: #{$i}px;
+  }
+
+  .left#{$i} {
+    left: #{$i}px;
+  }
+
+  .right#{$i} {
+    right: #{$i}px;
+  }
+}
+
+// 负值定位（常用）
+@for $i from 1 through 20 {
+  .top-#{$i} {
+    top: -#{$i}px;
+  }
+
+  .bottom-#{$i} {
+    bottom: -#{$i}px;
+  }
+
+  .left-#{$i} {
+    left: -#{$i}px;
+  }
+
+  .right-#{$i} {
+    right: -#{$i}px;
+  }
+}
+
+// ============================================
+// Flexbox 工具类
+// ============================================
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flexn {
+  flex: none;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+// ============================================
+// 文本工具类
+// ============================================
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@for $i from 1 through 5 {
+  .text-clamp-#{$i} {
+    display: -webkit-box;
+    -webkit-line-clamp: $i;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// ============================================
+// 位置系统
+// ============================================
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.static {
+  position: static;
+}
+
+.sticky {
+  position: sticky;
+}
+
+// ============================================
+// 溢出系统
+// ============================================
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// ============================================
+// 其他工具类
+// ============================================
+.ma {
+  margin: auto;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// ============================================
+// 透明度
+// ============================================
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
