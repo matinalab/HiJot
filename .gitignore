@@ -8,7 +8,6 @@ yarn.lock
 dist/
 dist-electron/
 out/
-build/
 .output/
 .nuxt/
 
