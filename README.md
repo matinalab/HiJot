@@ -128,7 +128,7 @@ HiJot/
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/HiJot.git
+git clone https://github.com/matinalab/HiJot.git
 cd HiJot
 
 # 安装根目录依赖
